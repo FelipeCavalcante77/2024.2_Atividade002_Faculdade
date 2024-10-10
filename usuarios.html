@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários de Teste via REST</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body class="container bg-warning">
+    <h1 class="text-center my-4">Usuários de Teste via REST</h1>
+
+    <p class="text-center">Os usuários deste exemplo são fornecidos pela API de testes <a href="https://reqres.in">reqres.in</a>.</p>
+
+    
+    <div id="usuarios" class="container-fluid">
+        
+        <div class="row">
+           
+            <div class="col-md-4" v-for="(user, index) in users" :key="index">
+                <!-- Card de usuário -->
+                <div class="card m-3 p-2">
+                    <!-- Imagem do usuário -->
+                    <img :src="user.avatar" class="card-img-top" alt="Foto de {{ user.first_name }}">
+
+                    
+                    <div class="card-body">
+                        
+                        <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+                        <p class="card-text">{{ user.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Objeto Vue.js para controle da página
+        const app = new Vue({
+            el: '#usuarios',
+            data() {
+                return {
+                    users: [] 
+                };
+            },
+            mounted() {
+                this.loadUsers(); // Carrega os usuários ao montar o componente
+            },
+            methods: {
+                // Função para carregar os dados de usuários da API REST
+                loadUsers() {
+                    fetch('https://reqres.in/api/users?per_page=10') 
+                        .then(response => response.json()) // Converte resposta para JSON
+                        .then(data => {
+                            this.users = data.data; // Atribui os dados ao vetor de usuários
+                        })
+                        .catch(error => {
+                            console.error('Erro ao carregar os usuários:', error);
+                        });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

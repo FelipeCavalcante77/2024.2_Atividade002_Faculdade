@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box; /* Melhora o controle de padding e margin */
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif; /* Define uma fonte padrão */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: #E9967A; /* Cor de fundo da página */
+}
+
+.cabecalho {
+    height: 60px;
+    background-color: #343A40; /* Cor de fundo do cabeçalho */
+}
+
+.nav-item-texto {
+    color: white !important;
+}
+
+.container-fluid {
+    flex: 1;
+    padding: 20px; /* Espaçamento interno da área principal */
+    background-color: #E9967A; /* Cor de fundo da página */
+}
+
+.item {
+    background-color: #F9FAD2; /* Cor de fundo dos itens */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    margin-bottom: 20px; /* Espaçamento entre os itens */
+    overflow: hidden; /* Evita que imagens saiam do contêiner */
+}
+.logo-conteudo-img{
+    width: 20%;
+    height: auto;
+}
+.logo-conteudo-titulo{
+    font-size: 50px;
+    font-weight: bold;
+}
+.item-subtitulo{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.item-titulo {
+    text-align: center;
+    padding: 10px; /* Espaçamento interno do título */
+    font-weight: bold;
+}
+
+
+.item-imagem {
+    display: flex;
+    justify-content: center; /* Centraliza a imagem */
+    align-items: center;
+    margin: 3%;
+}
+
+.item-img {
+    width: 100%; /* Imagem ocupa 100% do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+footer {
+    background-color: black; /* Cor de fundo do footer */
+    color: white; /* Cor do texto do footer */
+    text-align: center;
+    padding: 0.3rem; /* Espaçamento interno do footer */
+    position: relative; /* Para posicionamento adequado */
+}
+
+.rodape {
+    margin: 0; /* Remove margens do rodapé */
+}
